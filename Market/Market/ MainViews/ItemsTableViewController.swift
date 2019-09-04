@@ -16,12 +16,14 @@ class ItemsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //removes empty cells from tableview
-        tableView.tableFooterView = UIView()
+        //tableView.tableFooterView = UIView()
         self.title = category?.name
         
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        //self.tableView.reloadData()
+
         if category != nil {
             //download items
             loadItems()
@@ -33,7 +35,8 @@ class ItemsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return itemArray.count
+        
+        return 1
         
         
         
@@ -41,16 +44,16 @@ class ItemsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return itemArray.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ItemTableViewCell
         cell.generateCell(itemArray[indexPath.row])
-        print(itemArray[indexPath.row])
+        
 
-        // Configure the cell...
+    
 
         return cell
     }
@@ -70,12 +73,9 @@ class ItemsTableViewController: UITableViewController {
     //MARK: Load Items
     private func loadItems(){
         downloadItemsFromfirebase(category!.id) { (allItems) in
-            print("we have \(allItems.count) items for this category")
+            
             self.itemArray = allItems
-            print(self.itemArray[0].name)
-            print(self.itemArray[0].description)
-            print(self.itemArray[0].price)
-
+           
             self.tableView.reloadData()
         }
     }

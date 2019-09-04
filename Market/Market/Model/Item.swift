@@ -24,6 +24,7 @@ class Item {
         categoryId = _dictionary[kCATEGORYID] as? String
         name = _dictionary[kNAME] as? String
         description = _dictionary[kDESCRIPTION] as? String
+        price = _dictionary[kPRICE] as? Double
         imageLinks = _dictionary[kIMAGELINKS] as? [String]
     }
     
