@@ -49,7 +49,7 @@ class CategoryCollectionViewController: UICollectionViewController {
     //MARK: Download catgories
     private func loadCategories() {
         downloadCategoriesFromFirebase { (allcatgories) in
-            print("We have", allcatgories.count)
+            
             self.categoryArray = allcatgories
             self.collectionView.reloadData()
         }

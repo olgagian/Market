@@ -19,7 +19,6 @@ class ItemsTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         self.title = category?.name
         
-        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -47,7 +46,9 @@ class ItemsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ItemTableViewCell
+        cell.generateCell(itemArray[indexPath.row])
+        print(itemArray[indexPath.row])
 
         // Configure the cell...
 
@@ -68,7 +69,15 @@ class ItemsTableViewController: UITableViewController {
     }
     //MARK: Load Items
     private func loadItems(){
-        
+        downloadItemsFromfirebase(category!.id) { (allItems) in
+            print("we have \(allItems.count) items for this category")
+            self.itemArray = allItems
+            print(self.itemArray[0].name)
+            print(self.itemArray[0].description)
+            print(self.itemArray[0].price)
+
+            self.tableView.reloadData()
+        }
     }
 
 }

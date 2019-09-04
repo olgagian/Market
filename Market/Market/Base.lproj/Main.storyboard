@@ -49,7 +49,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="70H-u0-fNQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uKT-bX-fpg">
                             <size key="itemSize" width="120" height="120"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -122,26 +122,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="OvC-Vr-AFj">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="OvC-Vr-AFj" customClass="ItemTableViewCell" customModule="Market" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OvC-Vr-AFj" id="JR4-A2-cBa">
                                     <rect key="frame" x="0.0" y="0.0" width="382.5" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2XU-o4-fHJ">
-                                            <rect key="frame" x="118" y="11" width="190.5" height="20"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h3a-Rt-D9h">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menCloth" translatesAutoresizingMaskIntoConstraints="NO" id="h3a-Rt-D9h">
                                             <rect key="frame" x="20" y="5" width="90" height="70"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="70" id="Gad-Fd-TDO"/>
                                                 <constraint firstAttribute="width" constant="90" id="L5A-NO-V66"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2XU-o4-fHJ">
+                                            <rect key="frame" x="118" y="11" width="190.5" height="20"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5t-PU-U7Z">
                                             <rect key="frame" x="118" y="30" width="190.5" height="45"/>
                                             <constraints>
@@ -174,6 +174,12 @@
                                         <constraint firstItem="S5t-PU-U7Z" firstAttribute="leading" secondItem="h3a-Rt-D9h" secondAttribute="trailing" constant="8" id="yXd-EN-jum"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="S5t-PU-U7Z" id="RGz-Ha-sww"/>
+                                    <outlet property="itemImageView" destination="h3a-Rt-D9h" id="oH4-bF-d2Y"/>
+                                    <outlet property="nameLabel" destination="2XU-o4-fHJ" id="7aU-0R-r7e"/>
+                                    <outlet property="priceLabel" destination="hfb-IS-KCx" id="she-fz-lck"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -295,4 +301,7 @@
             <point key="canvasLocation" x="1818.840579710145" y="152.67857142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menCloth" width="75" height="75"/>
+    </resources>
 </document>
