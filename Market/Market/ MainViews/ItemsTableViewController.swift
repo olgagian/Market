@@ -57,7 +57,13 @@ class ItemsTableViewController: UITableViewController {
 
         return cell
     }
-   
+   //MARK:TableView Delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        showItemView(itemArray[indexPath.row])
+        
+    }
 
     
     // MARK: - Navigation
@@ -69,6 +75,11 @@ class ItemsTableViewController: UITableViewController {
             
         }
         
+    }
+    private func showItemView(_ item:Item){
+        let itemVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "itemView") as! ItemViewController
+        itemVC.item = item
+        self.navigationController?.pushViewController(itemVC, animated: true)
     }
     //MARK: Load Items
     private func loadItems(){
