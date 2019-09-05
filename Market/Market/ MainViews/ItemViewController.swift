@@ -60,7 +60,7 @@ class ItemViewController: UIViewController {
         
     }
     @objc func  addtoBasketButtonPressed() {
-        print("Add to basket",item.name)
+        print("Added to basket",item.name)
     }
     
 }
