@@ -16,7 +16,7 @@ class ItemViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     var item: Item!
     var itemImages: [UIImage] = []
-    var hdu = JGProgressHUD(style: .dark)
+    var hud = JGProgressHUD(style: .dark)
     private let sectionInSets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
     private let cellHeight: CGFloat = 196.0
     private let itemsPerRow:CGFloat = 1
@@ -60,9 +60,48 @@ class ItemViewController: UIViewController {
         
     }
     @objc func  addtoBasketButtonPressed() {
-        print("Added to basket",item.name)
+        //TODO: check if uswe is logged in or show login view
+        downloadBasketFromFirestore("1234") { (basket) in
+            if basket == nil {
+                self.createNewBasket()
+            }else{
+                basket!.itemIds.append(self.item.id)
+                self.updateBasket(basket: basket!, withValues: [kITEMIDS : basket?.itemIds])
+            }
+        }
     }
+    //MARK - Add to basket
     
+    private func createNewBasket() {
+        let newBasket = Basket()
+        newBasket.id = UUID().uuidString
+        newBasket.ownerId = "1234"
+        newBasket.itemIds=[self.item.id]
+        saveBasketToFirestore(newBasket)
+        
+        self.hud.textLabel.text = "Added to basket!"
+        self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+        self.hud.show(in: self.view)
+        self.hud.dismiss(afterDelay: 2.0)
+        
+        
+    }
+    private func updateBasket(basket:Basket, withValues:[String:Any]) {
+        updateBasketinFirestore(basket, withValues: withValues) { (error) in
+            if error != nil {
+                self.hud.textLabel.text = "Error:\(error!.localizedDescription)"
+                    self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+                    self.hud.show(in: self.view)
+                    self.hud.dismiss(afterDelay: 2.0)
+            }else {
+                self.hud.textLabel.text = "Added to basket!"
+                self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+                self.hud.show(in: self.view)
+                self.hud.dismiss(afterDelay: 2.0)
+            }
+        }
+        
+    }
 }
 extension ItemViewController: UICollectionViewDataSource,UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
