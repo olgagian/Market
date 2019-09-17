@@ -45,11 +45,11 @@
                                                 <constraint firstAttribute="width" constant="224" id="PKc-af-A7i"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="pn5-Xu-ALP" secondAttribute="trailing" constant="8" id="KR7-Vr-6bK"/>
                                         <constraint firstItem="pn5-Xu-ALP" firstAttribute="centerY" secondItem="wbT-cz-igk" secondAttribute="centerY" id="cs6-7H-PZi"/>
