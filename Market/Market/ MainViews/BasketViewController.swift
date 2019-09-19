@@ -30,6 +30,7 @@ class BasketViewController: UIViewController {
         super.viewDidAppear(animated)
         //TODO: check is user is logged in
         loadBasketFromFirestore()
+          
     }
     @IBAction func checkoutButtonPressed(_ sender: Any) {
         
@@ -64,6 +65,7 @@ class BasketViewController: UIViewController {
             basketTotalPriceLabel.text = returnBasketTotalPrice()
 
         }
+        checkoutButtonStatusUpdate()
     }
     private func returnBasketTotalPrice()-> String {
         var totalPrice = 0.0
@@ -74,6 +76,14 @@ class BasketViewController: UIViewController {
         }
         return "Total price: " + convertToCurrency(totalPrice)
     }
+    //MARK - Navgiation
+    func showItemView(withItem: Item){
+
+            let itemVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "itemView") as! ItemViewController
+            itemVC.item = withItem
+            self.navigationController?.pushViewController(itemVC, animated: true)
+    
+    }
     //MARK: control checkoututton
     private func checkoutButtonStatusUpdate() {
         ckeckOutButtonOutlet.isEnabled = allItems.count  > 0
@@ -82,11 +92,21 @@ class BasketViewController: UIViewController {
         }else {
             disableCheckoutButton()
         }
+        tqbleView.reloadData()
     }
     private func disableCheckoutButton() {
         ckeckOutButtonOutlet.isEnabled = false
         ckeckOutButtonOutlet.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
 
+    }
+    private func  removeItemFromBasket(itemId: String) {
+        
+        for i in 0..<basket!.itemIds.count {
+            if itemId == basket!.itemIds[i] {
+                basket!.itemIds.remove(at: i)
+                return
+            }
+        }
     }
 }
 extension BasketViewController:UITableViewDelegate,UITableViewDataSource {
@@ -107,10 +127,31 @@ extension BasketViewController:UITableViewDelegate,UITableViewDataSource {
         return true
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-
+        if editingStyle == .delete {
+            let itemToDelete = allItems[indexPath.row]
+            allItems.remove(at: indexPath.row)
+            tqbleView.reloadData()
+            removeItemFromBasket(itemId: itemToDelete.id)
+            updateBasketinFirestore(basket!, withValues: [kITEMIDS:basket!.itemIds]) { (error) in
+                if error != nil {
+                    print("error updating the basket",error!.localizedDescription)
+                }
+                self.getBasketItems()
+            }
+            
         }
+        }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tqbleView.deselectRow(at: indexPath, animated: true)
+        showItemView(withItem: allItems[indexPath.row])
+
     }
-    
-    
-    
+
+
 }
+    
+    
+    
+
