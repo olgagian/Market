@@ -14,6 +14,7 @@
 		0B287D9923201F990082EBB0 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B287D9823201F990082EBB0 /* ImageCollectionViewCell.swift */; };
 		0B287D9B2322BBA10082EBB0 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B287D9A2322BBA10082EBB0 /* Basket.swift */; };
 		0B31136B231F1A5800EEEA89 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B31136A231F1A5800EEEA89 /* ItemTableViewCell.swift */; };
+		0B31C9CF233E6E2C00BCFF35 /* MUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B31C9CE233E6E2C00BCFF35 /* MUser.swift */; };
 		0B3C418B2310423E00992E67 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C418A2310423E00992E67 /* ItemsTableViewController.swift */; };
 		0B3C418D231045CC00992E67 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C418C231045CC00992E67 /* Item.swift */; };
 		0B3C418F231522E300992E67 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3C418E231522E300992E67 /* AddItemViewController.swift */; };
@@ -42,6 +43,7 @@
 		0B287D9823201F990082EBB0 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		0B287D9A2322BBA10082EBB0 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 		0B31136A231F1A5800EEEA89 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		0B31C9CE233E6E2C00BCFF35 /* MUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUser.swift; sourceTree = "<group>"; };
 		0B3C418A2310423E00992E67 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		0B3C418C231045CC00992E67 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		0B3C418E231522E300992E67 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				0B19FBA022F885A9004C2F21 /* Category.swift */,
 				0B3C418C231045CC00992E67 /* Item.swift */,
 				0B287D9A2322BBA10082EBB0 /* Basket.swift */,
+				0B31C9CE233E6E2C00BCFF35 /* MUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				0B54C4B02333DDCA00B79439 /* WelcomeViewController.swift in Sources */,
 				0B3C418D231045CC00992E67 /* Item.swift in Sources */,
 				0B287D9723200A7F0082EBB0 /* ItemViewController.swift in Sources */,
+				0B31C9CF233E6E2C00BCFF35 /* MUser.swift in Sources */,
 				0BDFB72122F34D0700EE0B07 /* FirebaseCollectionReference.swift in Sources */,
 				0B8D9AA922F1F55600A072A4 /* ViewController.swift in Sources */,
 				0BDFB71D22F3485200EE0B07 /* CategoryCollectionViewCell.swift in Sources */,

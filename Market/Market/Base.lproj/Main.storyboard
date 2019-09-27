@@ -626,7 +626,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcn-0n-jG5">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcn-0n-jG5">
                                 <rect key="frame" x="137" y="433" width="140" height="30"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.41176470590000003" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -640,7 +640,7 @@
                                     <action selector="resendEmailButtomPressed:" destination="Mh9-xU-8hM" eventType="touchUpInside" id="RkB-ce-km7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPO-cG-CRg">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPO-cG-CRg">
                                 <rect key="frame" x="137" y="395" width="140" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -662,6 +662,7 @@
                             <constraint firstItem="GEY-jr-kEy" firstAttribute="top" secondItem="yYA-Bk-7Jo" secondAttribute="bottom" constant="25" id="1f4-E1-hSc"/>
                             <constraint firstItem="GEY-jr-kEy" firstAttribute="leading" secondItem="FpX-17-6z0" secondAttribute="leading" constant="16" id="5Y7-DP-0nq"/>
                             <constraint firstItem="FpX-17-6z0" firstAttribute="trailing" secondItem="GEY-jr-kEy" secondAttribute="trailing" constant="16" id="C9B-bg-sSX"/>
+                            <constraint firstItem="YPO-cG-CRg" firstAttribute="centerX" secondItem="BEY-n4-eFZ" secondAttribute="centerX" id="FxA-x5-8DK"/>
                             <constraint firstItem="FpX-17-6z0" firstAttribute="trailing" secondItem="yYA-Bk-7Jo" secondAttribute="trailing" constant="16" id="IPP-GB-xT7"/>
                             <constraint firstItem="lcn-0n-jG5" firstAttribute="centerY" secondItem="BEY-n4-eFZ" secondAttribute="centerY" id="Kw3-Vb-pKd"/>
                             <constraint firstItem="FpX-17-6z0" firstAttribute="trailing" secondItem="Vaf-tx-wzU" secondAttribute="trailing" constant="16" id="LDl-Xh-ZuP"/>

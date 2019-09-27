@@ -61,14 +61,15 @@ class ItemViewController: UIViewController {
     }
     @objc func  addtoBasketButtonPressed() {
         //TODO: check if uswe is logged in or show login view
-        downloadBasketFromFirestore("1234") { (basket) in
-            if basket == nil {
-                self.createNewBasket()
-            }else{
-                basket!.itemIds.append(self.item.id)
-                self.updateBasket(basket: basket!, withValues: [kITEMIDS : basket?.itemIds])
-            }
-        }
+//        downloadBasketFromFirestore("1234") { (basket) in
+//            if basket == nil {
+//                self.createNewBasket()
+//            }else{
+//                basket!.itemIds.append(self.item.id)
+//                self.updateBasket(basket: basket!, withValues: [kITEMIDS : basket?.itemIds])
+//            }
+//        }
+        showLoginView()
     }
     //MARK - Add to basket
     
@@ -117,7 +118,13 @@ extension ItemViewController: UICollectionViewDataSource,UICollectionViewDelegat
             return cell
     }
     
-    
+    //MARK: -show login view
+    private func showLoginView(){
+        
+        let loginview = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "loginView")
+        self.present(loginview,animated: true)
+        
+    }
     
     
 }
