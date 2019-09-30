@@ -51,11 +51,74 @@ class MUser {
         } else {
              lastName = ""
         }
-        fullName = firstName+ "  " + lastName
-        if let mail = _dictionary[kEMAIL] {
-            email = mail as! String
+        fullName = firstName + "  " + lastName
+        if let faddress = _dictionary[kFULLADDRESS] {
+            fullAddress = faddress  as! String
         }else {
-            email = ""
+            fullAddress = ""
+        }
+        if let onB  = _dictionary[kONBOARD] {
+                   onBoard = onB  as! Bool
+               }else {
+                   onBoard = false
+               }
+        if let purchasedIds = _dictionary[kPURCHASEDITEMSID] {
+            purchasedItemIds = purchasedIds as! [String]
+        }else {
+            purchasedItemIds = []
+            
         }
     }
+    
+    //MARK: Return current user
+    class func currentId() -> String {
+        return Auth.auth().currentUser!.uid
+        
+    }
+    class func currentUser()-> MUser?{
+        if Auth.auth().currentUser != nil {
+            if let dictionary = UserDefaults.standard.object(forKey: kCURRENTUSER) {
+                return MUser.init(_dictionary: dictionary as! NSDictionary)
+            }
+        }
+        return nil
+    }
+    
+    
+    //MARK: -login func
+    class func loginUserWith(email:String,password:String, completion: @escaping(_ error:Error?, _ isEmailVerified: Bool)->Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { (authDataResult, error) in
+            if error == nil {
+                if authDataResult!.user.isEmailVerified {
+                   //to download user from firestore
+                    completion(error, true)
+                    
+                    
+                }else {
+                    print("email is not verified")
+                    completion(error, false)
+                }
+            }else {
+                completion(error, false)
+                
+                
+            }
+        }
+    }
+    //MARK - Register User
+    
+    class func registerUserWith(email:String,password:String, completion: @escaping (_ error: Error?)->Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { (authDataResult, error) in
+            completion(error)
+            
+            if error == nil {
+                //send email verification
+                authDataResult!.user.sendEmailVerification { (error) in
+                    print("auth email verification error::", error?.localizedDescription)
+                }
+            }
+        }
+     
+    }
 }
+ 
