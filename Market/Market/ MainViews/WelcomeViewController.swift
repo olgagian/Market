@@ -38,7 +38,15 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func registerButtonPressed(_ sender: Any) {
-        
+        if textFieldsHaveText() {
+            registerUser()
+        }else {
+            hud.textLabel.text = "All fields are required"
+            hud.indicatorView = JGProgressHUDErrorIndicatorView()
+            hud.show(in: self.view)
+            hud.dismiss(afterDelay: 2.0)
+            
+        }
     }
     @IBAction func forgotPasswordButtonPressed(_ sender: Any) {
         
@@ -47,9 +55,49 @@ class WelcomeViewController: UIViewController {
     @IBAction func resendEmailButtomPressed(_ sender: Any) {
         
     }
+    //MARK: Register User
+    private func registerUser() {
+        showLoadingIndicator()
+        MUser.registerUserWith(email: emailTextField.text!, password: passwordTextField.text!) { (error) in
+            if error == nil {
+                self.hud.textLabel.text = "Verification email send"
+                self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+                self.hud.show(in: self.view)
+                self.hud.dismiss(afterDelay: 2.0)
+            }else {
+                print("error registering", error?.localizedDescription)
+                self.hud.textLabel.text = error?.localizedDescription
+                self.hud.indicatorView = JGProgressHUDErrorIndicatorView()
+                self.hud.show(in: self.view)
+                self.hud.dismiss(afterDelay: 2.0)
+            }
+            self.hideLoadinggIdicator()
+        }
+    }
     //MARk - helpers
+    
+    private func textFieldsHaveText()-> Bool {
+        return emailTextField.text != "" && passwordTextField.text != ""
+    }
+    
+    
     
     private func dismissView() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK  -Activity Indicator
+    private func showLoadingIndicator() {
+        if activityIdicator != nil {
+            self.view.addSubview(activityIdicator!)
+            activityIdicator?.stopAnimating()
+        }
+    }
+    
+    private func hideLoadinggIdicator() {
+        if activityIdicator != nil {
+            activityIdicator!.removeFromSuperview()
+            activityIdicator?.stopAnimating()
+        }
     }
 }
