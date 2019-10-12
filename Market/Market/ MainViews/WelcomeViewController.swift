@@ -162,8 +162,7 @@ class WelcomeViewController: UIViewController {
         }
     }
 }
-<<<<<<< HEAD
-=======
-//test commit
->>>>>>> 28b4cfc7d374bd1d1cdbf067cea3834c88521598
+
+
+
 
