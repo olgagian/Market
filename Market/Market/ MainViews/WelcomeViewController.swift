@@ -86,6 +86,7 @@ class WelcomeViewController: UIViewController {
                     self.hud.indicatorView = JGProgressHUDErrorIndicatorView()
                     self.hud.show(in: self.view)
                     self.hud.dismiss(afterDelay: 2.0)
+                    self.resendButtonOulet.isHidden = false
                 }
             }else {
                 print("error loging in the user",error!.localizedDescription)
@@ -163,7 +164,8 @@ class WelcomeViewController: UIViewController {
     }
 }
 
-//the force will always be with you motherfucker
+
+
 
 
 
