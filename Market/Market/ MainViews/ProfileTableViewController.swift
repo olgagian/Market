@@ -24,6 +24,7 @@ class ProfileTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         //checkloggin in status
         checkLoginStatus()
+        checkOnBoardingStatus()
     }
 
     // MARK: - Table view data source
@@ -35,7 +36,23 @@ class ProfileTableViewController: UITableViewController {
     }
 
 //MARK: -Helpers
-   
+    private func checkOnBoardingStatus() {
+        if MUser.currentUser() != nil {
+            if MUser.currentUser()!.onBoard {
+                finishRegistrationButtonOutlet.setTitle("Account is Active", for: .normal)
+                finishRegistrationButtonOutlet.isEnabled = false
+            }else{
+                finishRegistrationButtonOutlet.setTitle("Finish Registration", for: .normal)
+                finishRegistrationButtonOutlet.isEnabled = true
+                finishRegistrationButtonOutlet.tintColor = .red
+            }
+        }else {
+            finishRegistrationButtonOutlet.setTitle("Logged out", for: .normal)
+            finishRegistrationButtonOutlet.isEnabled = false
+            purschaseHistoryButtonOutlet.isEnabled = false
+        }
+        
+    }
     
     private func checkLoginStatus() {
         if MUser.currentUser() == nil {
