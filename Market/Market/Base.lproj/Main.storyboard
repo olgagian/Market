@@ -819,10 +819,10 @@
             </objects>
             <point key="canvasLocation" x="2401" y="1537"/>
         </scene>
-        <!--View Controller-->
+        <!--Finish Registration View Controller-->
         <scene sceneID="UZM-Zv-yTs">
             <objects>
-                <viewController id="AdM-Jl-dMM" sceneMemberID="viewController">
+                <viewController id="AdM-Jl-dMM" customClass="FinishRegistrationViewController" customModule="Market" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AxV-um-0hC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -838,6 +838,9 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="0.93725490199999995" green="0.41176470590000003" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="AdM-Jl-dMM" eventType="touchUpInside" id="NIa-sp-hgv"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CU3-z6-FLW">
                                 <rect key="frame" x="16" y="58" width="382" height="34"/>
@@ -855,6 +858,9 @@
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="AdM-Jl-dMM" eventType="touchUpInside" id="sDm-3L-rpN"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cDR-gd-CPe">
                                 <rect key="frame" x="16" y="109" width="382" height="34"/>
@@ -885,6 +891,12 @@
                         <viewLayoutGuide key="safeArea" id="HT9-JK-egs"/>
                     </view>
                     <navigationItem key="navigationItem" id="mwQ-qu-O8g"/>
+                    <connections>
+                        <outlet property="adressTextField" destination="1Lc-rj-2AP" id="QgI-sD-GHi"/>
+                        <outlet property="doneButtonOutlet" destination="VdE-Pb-A6U" id="WKQ-0l-25T"/>
+                        <outlet property="nameTextField" destination="CU3-z6-FLW" id="0bm-lr-9mK"/>
+                        <outlet property="surnameTextField" destination="cDR-gd-CPe" id="7LZ-EJ-Yzq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEs-dC-2ep" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
