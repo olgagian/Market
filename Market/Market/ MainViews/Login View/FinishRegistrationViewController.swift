@@ -32,6 +32,8 @@ class FinishRegistrationViewController: UIViewController {
     }
     //MARK: - IBActions
     @IBAction func doneButtonPressed(_ sender: Any) {
+        
+        
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
