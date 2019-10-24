@@ -190,7 +190,7 @@ func userDictionaryFrom(user: MUser)-> NSDictionary {
 }
  
 //makr- update user
-func upCurrentUserInFirestore(withValues: [String:Any], completion: @escaping(_ error: Error?)->Void){
+func updateCurrentUserInFirestore(withValues: [String:Any], completion: @escaping(_ error: Error?)->Void){
     if let dictionary =  UserDefaults.standard.object(forKey: kCURRENTUSER) {
         
         let userobject = (dictionary as! NSDictionary).mutableCopy() as! NSMutableDictionary

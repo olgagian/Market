@@ -33,7 +33,7 @@ class FinishRegistrationViewController: UIViewController {
     //MARK: - IBActions
     @IBAction func doneButtonPressed(_ sender: Any) {
         
-        
+        finishOnbarding()
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
@@ -58,4 +58,27 @@ class FinishRegistrationViewController: UIViewController {
         }
         
     }
+    func finishOnbarding() {
+        let withValues =  [kFIRSTNAME:nameTextField.text!,kLASTNAME:surnameTextField.text!,kONBOARD:true,kFULLADDRESS:adressTextField.text!,kFULLNAME:(nameTextField.text! + " " + surnameTextField.text!)] as[String:Any]
+        updateCurrentUserInFirestore(withValues: withValues) { (error
+            ) in
+            if error == nil {
+                
+                self.hud.textLabel.text = "Updated!"
+                self.hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+                self.hud.show(in: self.view)
+                self.hud.dismiss(afterDelay: 2.0)
+                self.dismiss(animated: true, completion: nil)
+                
+            }else{
+                self.hud.textLabel.text = error!.localizedDescription
+                self.hud.indicatorView = JGProgressHUDErrorIndicatorView()
+                self.hud.show(in: self.view)
+                self.hud.dismiss(afterDelay: 2.0)
+                            
+            }
+        }
+    }
+
+
 }
