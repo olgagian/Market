@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0C4E462363A1BD005E8BB9 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0C4E452363A1BD005E8BB9 /* EditProfileViewController.swift */; };
 		0B19FBA122F885A9004C2F21 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B19FBA022F885A9004C2F21 /* Category.swift */; };
 		0B19FBA422F88771004C2F21 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B19FBA322F88771004C2F21 /* Constants.swift */; };
 		0B287D95231FF4F60082EBB0 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B287D94231FF4F60082EBB0 /* HelperFunctions.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B0C4E452363A1BD005E8BB9 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		0B19FBA022F885A9004C2F21 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		0B19FBA322F88771004C2F21 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0B287D94231FF4F60082EBB0 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				0B54C4AD232FED9F00B79439 /* BasketViewController.swift */,
 				0B91B5AD235FA87400DA5DB1 /* Login View */,
 				0B33BF252354D1330082358B /* ProfileTableViewController.swift */,
+				0B0C4E452363A1BD005E8BB9 /* EditProfileViewController.swift */,
 			);
 			path = " MainViews";
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				0BDFB72122F34D0700EE0B07 /* FirebaseCollectionReference.swift in Sources */,
 				0B8D9AA922F1F55600A072A4 /* ViewController.swift in Sources */,
 				0BDFB71D22F3485200EE0B07 /* CategoryCollectionViewCell.swift in Sources */,
+				0B0C4E462363A1BD005E8BB9 /* EditProfileViewController.swift in Sources */,
 				0B7FFC1B23183156004D21C3 /* Richability.swift in Sources */,
 				0B287D95231FF4F60082EBB0 /* HelperFunctions.swift in Sources */,
 				0B8D9AA522F1F55600A072A4 /* AppDelegate.swift in Sources */,

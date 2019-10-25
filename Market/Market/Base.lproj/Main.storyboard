@@ -813,6 +813,7 @@
                     <connections>
                         <outlet property="finishRegistrationButtonOutlet" destination="nVW-ZY-WO5" id="zFy-Ef-Zgs"/>
                         <outlet property="purschaseHistoryButtonOutlet" destination="vmk-Iw-FXW" id="auk-UX-bpP"/>
+                        <segue destination="UO7-LZ-blP" kind="show" identifier="profileToEditSeg" id="yLG-d5-kLY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvR-4d-sIy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -901,6 +902,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEs-dC-2ep" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3369.5652173913045" y="1524.7767857142856"/>
+        </scene>
+        <!--Edit Profile-->
+        <scene sceneID="abL-VW-cVL">
+            <objects>
+                <viewController id="UO7-LZ-blP" customClass="EditProfileViewController" customModule="Market" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fvh-ok-eT4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IFl-Jx-UBh">
+                                <rect key="frame" x="16" y="100" width="382" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R6b-QR-Yv2">
+                                <rect key="frame" x="16" y="142" width="382" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K8o-pV-5U4">
+                                <rect key="frame" x="16" y="184" width="382" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQ5-PK-vLZ">
+                                <rect key="frame" x="16" y="428.5" width="382" height="39"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOutButtonPressed:" destination="UO7-LZ-blP" eventType="touchUpInside" id="cfU-3e-zxn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="isk-jZ-ALh" firstAttribute="trailing" secondItem="R6b-QR-Yv2" secondAttribute="trailing" constant="16" id="0kh-uI-spS"/>
+                            <constraint firstItem="K8o-pV-5U4" firstAttribute="leading" secondItem="isk-jZ-ALh" secondAttribute="leading" constant="16" id="2mi-Zg-ZcR"/>
+                            <constraint firstItem="IFl-Jx-UBh" firstAttribute="top" secondItem="isk-jZ-ALh" secondAttribute="top" constant="12" id="8Us-Kq-3Qc"/>
+                            <constraint firstItem="GQ5-PK-vLZ" firstAttribute="centerX" secondItem="fvh-ok-eT4" secondAttribute="centerX" id="8ZK-Ue-XNk"/>
+                            <constraint firstItem="K8o-pV-5U4" firstAttribute="top" secondItem="R6b-QR-Yv2" secondAttribute="bottom" constant="8" id="FY8-iv-2AU"/>
+                            <constraint firstItem="IFl-Jx-UBh" firstAttribute="leading" secondItem="isk-jZ-ALh" secondAttribute="leading" constant="16" id="Gp9-7z-63S"/>
+                            <constraint firstItem="isk-jZ-ALh" firstAttribute="trailing" secondItem="GQ5-PK-vLZ" secondAttribute="trailing" constant="16" id="SQZ-rj-p0L"/>
+                            <constraint firstItem="R6b-QR-Yv2" firstAttribute="top" secondItem="IFl-Jx-UBh" secondAttribute="bottom" constant="8" id="f7f-Zt-n6O"/>
+                            <constraint firstItem="isk-jZ-ALh" firstAttribute="trailing" secondItem="K8o-pV-5U4" secondAttribute="trailing" constant="16" id="l2W-NP-MtO"/>
+                            <constraint firstItem="R6b-QR-Yv2" firstAttribute="leading" secondItem="isk-jZ-ALh" secondAttribute="leading" constant="16" id="mKL-L1-7uO"/>
+                            <constraint firstItem="GQ5-PK-vLZ" firstAttribute="centerY" secondItem="fvh-ok-eT4" secondAttribute="centerY" id="myg-bK-bWU"/>
+                            <constraint firstItem="isk-jZ-ALh" firstAttribute="trailing" secondItem="IFl-Jx-UBh" secondAttribute="trailing" constant="16" id="oNH-eb-slv"/>
+                            <constraint firstItem="GQ5-PK-vLZ" firstAttribute="leading" secondItem="isk-jZ-ALh" secondAttribute="leading" constant="16" id="syT-6S-cPQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="isk-jZ-ALh"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="gqD-6h-m4J">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1ac-me-wgR">
+                            <color key="tintColor" red="0.93725490199999995" green="0.41176470590000003" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="saveBarButtonPressed:" destination="UO7-LZ-blP" id="h3f-o1-rhe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addressTextField" destination="K8o-pV-5U4" id="8tg-SP-ZR4"/>
+                        <outlet property="nameTextField" destination="IFl-Jx-UBh" id="RYP-6T-5iw"/>
+                        <outlet property="surnameTextField" destination="R6b-QR-Yv2" id="qqx-iU-ODC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="40O-iP-QHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3476.811594202899" y="2250.6696428571427"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Eao-Ei-uPK">

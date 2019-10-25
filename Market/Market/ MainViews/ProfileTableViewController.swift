@@ -34,7 +34,10 @@ class ProfileTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 3
     }
-
+//MARK- TableViee delegata
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 //MARK: -Helpers
     private func checkOnBoardingStatus() {
         if MUser.currentUser() != nil {
