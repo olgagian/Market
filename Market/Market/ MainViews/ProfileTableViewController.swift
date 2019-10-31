@@ -83,6 +83,8 @@ class ProfileTableViewController: UITableViewController {
         self.present(loginView, animated: true, completion: nil)
     }
     private func goToEditProfile() {
-        print("edit profile")
+        performSegue(withIdentifier: "profileToEditSeg", sender: self)
+        
+        
     }
 }
