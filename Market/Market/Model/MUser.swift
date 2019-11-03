@@ -107,6 +107,7 @@ class MUser {
             }
         }
     }
+
     //MARK - Register User
     
     class func registerUserWith(email:String,password:String, completion: @escaping (_ error: Error?)->Void) {
@@ -138,7 +139,23 @@ class MUser {
     })
 }
     
-}
+
+ class func logOutCurrentUser(completion: @escaping (_ error: Error?) -> Void) {
+         
+         do {
+             try Auth.auth().signOut()
+             UserDefaults.standard.removeObject(forKey: kCURRENTUSER)
+             UserDefaults.standard.synchronize()
+             completion(nil)
+
+         } catch let error as NSError {
+             completion(error)
+         }
+         
+         
+     }
+
+ }//end of class
 ///MARK: - Download user
 
 func downloadUserFromFirestore(userId: String, email:String){
@@ -203,3 +220,4 @@ func updateCurrentUserInFirestore(withValues: [String:Any], completion: @escapin
         }
     }
 }
+

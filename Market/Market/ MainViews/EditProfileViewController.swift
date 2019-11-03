@@ -57,7 +57,7 @@ class EditProfileViewController: UIViewController {
     }
     
     @IBAction func logOutButtonPressed(_ sender: Any) {
-        
+        logOutUser()
         
     }
     
@@ -83,5 +83,15 @@ class EditProfileViewController: UIViewController {
         return (nameTextField.text != "" && surnameTextField.text != "" && addressTextField.text != "")
         
     }
-    
+    private func logOutUser(){
+        MUser.logOutCurrentUser { (error) in
+            if error == nil {
+                print("logged out")
+                self.navigationController?.popViewController(animated: true)
+                
+            }else {
+                print("error loggint out",error?.localizedDescription)
+            }
+        }
+    }
 }
