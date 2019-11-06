@@ -28,18 +28,31 @@ class BasketViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //TODO: check is user is logged in
-        loadBasketFromFirestore()
+        if MUser.currentUser() != nil {
+            loadBasketFromFirestore()
+
+        }else {
+            self.updateTotalLabels(true)
+        }
           
     }
     @IBAction func checkoutButtonPressed(_ sender: Any) {
-        
+        if MUser.currentUser()!.onBoard{
+            // proceed with purchase
+            
+        }else {
+            self.hud.textLabel.text = "Please complete your profile"
+            self.hud.indicatorView = JGProgressHUDErrorIndicatorView()
+            self.hud.show(in: self.view)
+            self.hud.dismiss(afterDelay: 2.0)
+            
+        }
         
         
     }
     //MARK: Download basket
     private func loadBasketFromFirestore() {
-        downloadBasketFromFirestore("1234") { (basket) in
+        downloadBasketFromFirestore(MUser.currentId()) { (basket) in
             self.basket = basket
             self.getBasketItems()
         }
