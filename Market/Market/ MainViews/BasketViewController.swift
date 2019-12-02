@@ -20,10 +20,19 @@ class BasketViewController: UIViewController {
     var allItems: [Item] = []
     var purchasedItemIds: [String] = []
     let hud = JGProgressHUD(style: .dark)
+    var  environment: String = PayPalEnvironmentNoNetwork {
+        willSet(newEnvironment) {
+            if(newEnvironment != environment) {
+                PayPalMobile.preconnect(withEnvironment: newEnvironment)
+            }
+        }
+    }
+    var payPalConfig = PayPalConfiguration()
 //MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tqbleView.tableFooterView = footerView
+        setupPaypal()
         // Do any additional setup after  loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -39,9 +48,7 @@ class BasketViewController: UIViewController {
     @IBAction func checkoutButtonPressed(_ sender: Any) {
         if MUser.currentUser()!.onBoard{
             // proceed with purchase
-            tempFuction()
-            addITemsToPurchaseHistory(self.purchasedItemIds)
-                        emptyTheBasket()
+           payButtonPressed()
         }else {
             self.hud.textLabel.text = "Please complete your profile"
             self.hud.indicatorView = JGProgressHUDErrorIndicatorView()
@@ -151,6 +158,22 @@ class BasketViewController: UIViewController {
                 basket!.itemIds.remove(at: i)
                 return
             }
+        }
+    }
+
+//MARK- Paypal
+private func setupPaypal(){
+    payPalConfig.acceptCreditCards = false
+    payPalConfig.merchantName = "IOSDevSchool MArket"
+    payPalConfig.merchantPrivacyPolicyURL = URL(string: "https://www.paypal.com/webapps/mpp/ua/privacy-full")
+    payPalConfig.merchantUserAgreementURL = URL(string: "https://www.paypal.com/webapps/mpp/ua/useragreement-full")
+    payPalConfig.languageOrLocale = Locale.preferredLanguages[0]
+    payPalConfig.payPalShippingAddressOption = .both
+}
+    private func payButtonPressed() {
+        var itemsToBuy: [PayPalItem] = []
+        for item in allItems {
+            let tempItem = PayPalItem(name: item.name, withQuantity: 1, withPrice: NSDecimalNumber(value: item.price), withCurrency: "EUR", withSku: <#T##String?#>)
         }
     }
 }
