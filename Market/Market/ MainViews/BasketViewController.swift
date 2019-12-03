@@ -173,7 +173,25 @@ private func setupPaypal(){
     private func payButtonPressed() {
         var itemsToBuy: [PayPalItem] = []
         for item in allItems {
-            let tempItem = PayPalItem(name: item.name, withQuantity: 1, withPrice: NSDecimalNumber(value: item.price), withCurrency: "EUR", withSku: <#T##String?#>)
+            let tempItem = PayPalItem(name: item.name, withQuantity: 1, withPrice: NSDecimalNumber(value: item.price), withCurrency: "EUR", withSku: nil)
+            purchasedItemIds.append(item.id)
+            itemsToBuy.append(tempItem)
+        }
+        let subtotal = PayPalItem.totalPrice(forItems: itemsToBuy)
+        //optional
+        let shippingCost = NSDecimalNumber(string: "25.0")
+        let tax = NSDecimalNumber(string: "5.00")
+         let  paymentDetails = PayPalPaymentDetails(subtotal: subtotal, withShipping: shippingCost, withTax: tax)
+        let total = subtotal.adding(shippingCost).adding(tax)
+        let payment = PayPalPayment(amount: total, currencyCode: "EUR", shortDescription: "Payment to IOSDevSchool", intent: .sale)
+        payment.items = itemsToBuy
+        payment.paymentDetails = paymentDetails
+        if payment.processable{
+            let paymentViewController = PayPalPaymentViewController(payment: payment, configuration: payPalConfig, delegate: self)
+            present(paymentViewController!, animated: true, completion: nil)
+            
+        }else {
+            print("payment not processable")
         }
     }
 }
@@ -220,6 +238,21 @@ extension BasketViewController:UITableViewDelegate,UITableViewDataSource {
 
 }
     
+extension BasketViewController:PayPalPaymentDelegate {
+    func payPalPaymentDidCancel(_ paymentViewController: PayPalPaymentViewController) {
+        print("paypal payment cancelled")
+        paymentViewController.dismiss(animated: true, completion: nil)
+    }
     
+    func payPalPaymentViewController(_ paymentViewController: PayPalPaymentViewController, didComplete completedPayment: PayPalPayment) {
+        paymentViewController.dismiss(animated: true) {
+            self.addITemsToPurchaseHistory(self.purchasedItemIds)
+            self.emptyTheBasket()
+        }
+    }
+    
+     
+    
+}
     
 
