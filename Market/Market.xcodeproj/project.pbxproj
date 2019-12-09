@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0A1191239F03DA00D34649 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0A1190239F03DA00D34649 /* SearchViewController.swift */; };
 		0B0C4E462363A1BD005E8BB9 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0C4E452363A1BD005E8BB9 /* EditProfileViewController.swift */; };
 		0B19FBA122F885A9004C2F21 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B19FBA022F885A9004C2F21 /* Category.swift */; };
 		0B19FBA422F88771004C2F21 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B19FBA322F88771004C2F21 /* Constants.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B0A1190239F03DA00D34649 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0B0C4E452363A1BD005E8BB9 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		0B19FBA022F885A9004C2F21 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		0B19FBA322F88771004C2F21 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				0B3C418E231522E300992E67 /* AddItemViewController.swift */,
 				0B287D9623200A7F0082EBB0 /* ItemViewController.swift */,
 				0B54C4AD232FED9F00B79439 /* BasketViewController.swift */,
+				0B0A1190239F03DA00D34649 /* SearchViewController.swift */,
 				0B91B5AD235FA87400DA5DB1 /* Login View */,
 				0B33BF252354D1330082358B /* ProfileTableViewController.swift */,
 				0B9762E323722E280056D650 /* PurchasedHistoryTableViewController.swift */,
@@ -348,6 +351,7 @@
 				0BDFB72122F34D0700EE0B07 /* FirebaseCollectionReference.swift in Sources */,
 				0B8D9AA922F1F55600A072A4 /* ViewController.swift in Sources */,
 				0B9762E423722E280056D650 /* PurchasedHistoryTableViewController.swift in Sources */,
+				0B0A1191239F03DA00D34649 /* SearchViewController.swift in Sources */,
 				0BDFB71D22F3485200EE0B07 /* CategoryCollectionViewCell.swift in Sources */,
 				0B0C4E462363A1BD005E8BB9 /* EditProfileViewController.swift in Sources */,
 				0B7FFC1B23183156004D21C3 /* Richability.swift in Sources */,
